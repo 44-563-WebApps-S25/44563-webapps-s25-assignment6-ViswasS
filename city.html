@@ -12,25 +12,25 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
           integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
       </head>
-<body>
-    <h1>City game by Viswas</h1>
+<body class = "container mt-5">
+    <h1 class="text-primary">City game by Viswas</h1>
     <br>
 
 <h2>Getting input</h2>
 
-<form>
+<form class="mb-3">
     <label for="secret_city">Where in the world</label>
     <input type ="password" id="secret_city" name="San Diego" min=10 max=50 step=2 value=30> <br>
 
     <label for="guess">Guess the city</label>
     <input type ="text" id="guess" autofocus> <br>
 
-    <input type="button" onclick="checkCity()" value="Check the guess">
+    <input type="button" onclick="checkCity()" id="guessButton" value="Check the guess">
 </form>
 
 
 <p id="result">Result will be displayed here.</p>
-<p>Found: <span id="found">0</span>     | Oops: <span id="oops">0</span></p>
+<div class="alert alert-info">Found: <span id="found">0</span>     | Oops: <span id="oops">0</span></div>
 
 <img src="" alt="">
 
@@ -55,6 +55,7 @@ function checkCity (){
     let out = document.getElementById("result");
     let foundOut = document.getElementById("found");
     let oopsOut = document.getElementById("oops");
+    let guessButton = document.getElementById("guessButton");
 
     if (guess == secretCity){
         out.innerHTML = "You got it right!";
@@ -68,6 +69,14 @@ function checkCity (){
 
     foundOut.innerHTML = found;
     oopsOut.innerHTML = oops;
+
+    if (oops > 2 * found) {
+        guessButton.setAttribute("onclick", "tooManyGuesses()")
+    }
+}
+
+function tooManyGuesses() {
+    alert("Sorry, too many wrong guesses.");
 }
 
 function updatePic() {
