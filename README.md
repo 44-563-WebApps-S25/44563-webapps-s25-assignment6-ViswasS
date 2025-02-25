@@ -6,4 +6,4 @@ Introduction to Java Script and DOM
 ### Hosted at 
 - [City Game](https://44-563-webapps-s25.github.io/44563-webapps-s25-assignment6-ViswasS/city.html)
 - [Dinner Planner](https://44-563-webapps-s25.github.io/44563-webapps-s25-assignment6-ViswasS/dinner.html)
-- [Discount calculator](https://44-563-webapps-s25.github.io/44563-webapps-s25-assignment6-ViswasS/message,html)
+- [Discount calculator](https://44-563-webapps-s25.github.io/44563-webapps-s25-assignment6-ViswasS/message.html)
