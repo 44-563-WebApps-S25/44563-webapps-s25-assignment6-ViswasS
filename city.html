@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Alochisthan masteru</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+          integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
+          integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+      </head>
+<body>
+    <h1>City game by Viswas</h1>
+    <br>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="secret_city">Where in the world</label>
+    <input type ="password" id="secret_city" name="San Diego" min=10 max=50 step=2 value=30> <br>
+
+    <label for="guess">Guess the city</label>
+    <input type ="text" id="guess" autofocus> <br>
+
+    <input type="button" onclick="checkCity()" value="Check the guess">
+</form>
+
+
+<p id="result">Result will be displayed here.</p>
+<p>Found: <span id="found">0</span>     | Oops: <span id="oops">0</span></p>
+
+<img src="" alt="">
+
+<div>
+    <img id="petImage" src="tibetian.jpg" width="150" height="150" onclick="updatePic()">
+</div>
+
+
+<script>
+let oops = 0;
+let found = 0;
+let usePic = 1;
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("found").innerHTML = found;
+    document.getElementById("oops").innerHTML = oops;
+});
+
+function checkCity (){
+    let secretCity = document.getElementById("secret_city").value;
+    let guess = document.getElementById("guess").value;
+    let out = document.getElementById("result");
+    let foundOut = document.getElementById("found");
+    let oopsOut = document.getElementById("oops");
+
+    if (guess == secretCity){
+        out.innerHTML = "You got it right!";
+        found = 1;
+        alert("GotCha");
+    } else {
+        out.innerHTML = "You got it wrong!";
+        oops = oops + 1;
+        alert("Awe");
+    }
+
+    foundOut.innerHTML = found;
+    oopsOut.innerHTML = oops;
+}
+
+function updatePic() {
+    let imgElement = document.getElementById("petImage");
+    switch (usePic) {
+        case 1:
+            imgElement.src = "eagle.jpg";
+            usePic = 2;
+            break;
+        case 2:
+            imgElement.src = "tibetian.jpg";
+            usePic = 3;
+            break;
+        case 3:
+            imgElement.src = "yorkshire.jpg";
+            usePic = 1;
+            break;
+    }
+}
+
+</script>
+
+</body>
+</html> 
